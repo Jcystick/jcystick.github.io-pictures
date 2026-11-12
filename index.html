@@ -18,21 +18,17 @@
 </head>
 <body>
   <script>
-    // Hier alle Fotos eintragen
-    const fotos = [
-      "fotos/01.jpg",
-      "fotos/02.jpg",
-      "fotos/03.jpg"
-    ];
-    const dauer = 5000; // Anzeigedauer pro Foto in ms
+    const anzahl = 253;   // <-- Anzahl deiner Fotos eintragen
+    const dauer = 7000;  // Anzeigedauer pro Foto in ms
 
-    const slides = fotos.map((src, i) => {
+    const slides = [];
+    for (let i = 1; i <= anzahl; i++) {
       const img = document.createElement("img");
-      img.src = src;
-      img.className = "slide" + (i === 0 ? " active" : "");
+      img.src = encodeURIComponent("1 (" + i + ").jpg");
+      img.className = "slide" + (i === 1 ? " active" : "");
       document.body.appendChild(img);
-      return img;
-    });
+      slides.push(img);
+    }
 
     let aktuell = 0;
     setInterval(() => {
